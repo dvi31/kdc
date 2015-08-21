@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2006 rel. 3 sp2 (http://www.altova.com) by f (f) -->
+<schema xmlns:tns="http://d3s.dictao.com/d3s-report-xsd" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://d3s.dictao.com/d3s-report-xsd" version="1.0">
+	<!-- Définition des paramètres des messages -->
+	<element name="Report" type="tns:ReportType"/>
+	<!-- Définition des types des messages -->
+	<complexType name="ReportType">
+		<sequence>
+			<element name="Operations" type="tns:ReportOperationsType"/>
+		</sequence>
+		<attribute name="ID" type="ID" use="required"/>
+		<attribute name="Type" type="anyURI" use="required"/>
+		<attribute name="Name" type="string" use="required"/>
+		<attribute name="Description" type="string" use="optional"/>
+		<attribute name="TypeFormat" type="anyURI" use="optional"/>
+	</complexType>
+	<!-- Définition des types communs -->
+	<complexType name="ReportOperationsType">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element name="Operation" type="tns:ReportOperationType"/>
+		</sequence>
+		<attribute name="TypeFormat" type="anyURI" use="optional"/>
+	</complexType>
+	<complexType name="ReportOperationType">
+		<sequence>
+			<element name="Motivation" type="string"/>
+			<element name="Date" type="dateTime"/>
+			<element name="Result" type="tns:StatusInfoType"/>
+			<element name="Parameters" type="tns:ReportParametersType"/>
+		</sequence>
+		<attribute name="ID" type="ID" use="required"/>
+		<attribute name="Type" type="anyURI" use="required"/>
+		<attribute name="Name" type="string" use="required"/>
+		<attribute name="Description" type="string" use="optional"/>
+	</complexType>
+	<complexType name="ReportParametersType">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element name="Parameter" type="tns:ReportParameterType"/>
+		</sequence>
+		<attribute name="TypeFormat" type="anyURI" use="optional"/>
+	</complexType>
+	<complexType name="ReportParameterType">
+		<sequence maxOccurs="unbounded">
+			<element name="Value" type="tns:ReportValueType"/>
+		</sequence>
+		<attribute name="Type" type="anyURI" use="required"/>
+		<attribute name="Name" type="string" use="required"/>
+		<attribute name="Description" type="string" use="optional"/>
+	</complexType>
+	<complexType name="ReportValueType">
+		<choice>
+			<element name="StringValue" type="string"/>
+			<element name="DateValue" type="dateTime"/>
+			<element name="IDRefValue" type="IDREF"/>
+		</choice>
+	</complexType>
+	<complexType name="StatusInfoType">
+		<sequence>
+			<element name="StatusCode" type="string"/>
+			<element name="StatusMessage" type="string" minOccurs="0" nillable="false"/>
+			<element name="StatusDetail" type="tns:StatusDetailType" minOccurs="0" nillable="false"/>
+		</sequence>
+	</complexType>
+	<complexType name="StatusDetailType">
+		<sequence>
+			<any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+</schema>

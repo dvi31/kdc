@@ -1,0 +1,21 @@
+
+********************************
+***** Liste des paramètres *****
+********************************
+--applicant-path	/UtilisateurStandard-CoffreDoc2
+--ws-uri	https://ssdv006.unix-int.intra-int.bdf-int.local:8443/authority-web/secure/v2_1/
+--wsdl-uri	https://ssdv006.unix-int.intra-int.bdf-int.local:8443/authority-web/secure/v2_1/SafeboxPort?wsdl
+--storage-ws	https://ssdv006.unix-int.intra-int.bdf-int.local:8443/storage-web/v2_1/
+--keystore	src/test/resources/users/UtilisateurStandard-CoffreDoc2.pfx
+--keystore-type	PKCS12
+--keystore-pass	revCFN
+--truststore	src/test/resources/truststores/ws-ssl-truststore.jks
+--truststore-pass	password
+--motivation	morning test
+--safebox-path	Coffre-fort/Armoire_document/armoire_test_rsi/CFM_ROBOT
+--domain-name	Morning Test11
+--deposit-name	MorningTest11
+--password-data	Test_ajout11
+--log-file-path	src/test/supervision_log.txt
+********************************
+
